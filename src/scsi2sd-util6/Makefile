@@ -277,9 +277,10 @@ $(BUILD)/scsi2sd-util6$(EXE): $(OBJ) $(WXOBJ) $(BUILD)/scsi2sd-util.o
 	mkdir -p $(dir $@)
 	$(CXX) $(CXXFLAGS) $^ $(LDFLAGS_WX) $(LDFLAGS) -o $@
 
+all: $(BUILD)/scsi2sd-test$(EXE)
 $(BUILD)/scsi2sd-test$(EXE): $(OBJ) $(BUILD)/scsi2sd-test.o
 	mkdir -p $(dir $@)
-	$(CXX) $(CXXFLAGS) $^ $(LDFLAGS) -o $@
+	$(CXX) $(CXXFLAGS) $^ $(LDFLAGS_WX) $(LDFLAGS) -o $@
 
 ifneq ($(USE_SYSTEM_DFU_UTIL),Yes)
 all: $(BUILD)/dfu-util/buildstamp
